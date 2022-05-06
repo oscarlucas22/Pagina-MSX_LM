@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Consulta de juegos{% endblock %}
+{% block content %}
+    <div id="main">
+        <div class="inner">
+            <header>
+                <h1>Consultar juegos de MSX</h1>
+                <form method="POST" action="/juegos ">
+                    <label>Nombre del Juego</label>
+                    <input type="text" name="nombre" placeholder="Nombre Juego" value="{{nombre_juego}}" />
+                    <input type="submit" value="Buscar" />
+                    <select name="categorias">
+                    
+                        {% for categoria in lista_categoria -%}
+                            {% if categoria == categorias -%}
+                                <option value="{{categoria}}" selected="selected">{{categoria}}</option>
+                            {% else -%}
+                    
+                            <option value="{{categoria}}">{{categoria}}</option>
+                            {% endif -%}
+                        {% endfor -%}
+                    </select>
+                </form>
+            
+                {% if lista_nombres -%}
+                <h1>Consultar juegos de MSX</h1>
+                <table>
+                    <caption>Resultados de la busqueda</caption>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Desarrollador</th>
+                        <th>Detalles</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            {% for juegos in lista_nombres -%}
+                                <p>{{juegos}}</p>
+                            {% endfor -%}
+                        </th>
+                        <th>
+                            {% for desarrollador in lista_desarrolladores -%}
+                                <p>{{desarrollador}}</p>
+                            {% endfor -%}
+                        </th>
+                        <th>
+                            {% for id in lista_ids -%}
+                                <a href="/juego/{{id}}">
+                                    <p>Detalles</p>
+                                </a>
+                            {% endfor -%}
+                    {% endif -%}
+                        </th>
+                    </tr>
+                </table>
+            </header>
+        </div>
+    </div>
+{% endblock %}
