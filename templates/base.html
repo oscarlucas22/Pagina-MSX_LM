@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+    <title>{% block title %}Inicio de msx{% endblock %}</title>
+    <meta charset="UTF-8">
+    <!--Añadido la compatibilidad movil-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="descripcion" content="Pagina sobre el ordenador MSX" />
+    <link rel="icon" type="image/png" href="../static/images/msx_logo_negro--i 1413852612401413856;d 261240;w 240;b FFC832;m 1.png" sizes="72x72" />
+    <!--Añadido el estilo a la pagina-->
+    <link rel="stylesheet" href="../static/assets/css/main.css"/>
+		<noscript><link rel="stylesheet" href="../static/assets/css/noscript.css"/></noscript>
+	</head>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+
+      {% block content %}{% endblock %}
+
+      <footer id="footer">
+        <div class="inner">
+        </div>
+      </footer>
+    </div>
+    <strong>
+      <div class="wrapper row5">
+          <div id="copyright" class="hoc clear"> 
+            <p class="fl_left">Copyright &copy; 2022 - <a href="https://github.com/oscarlucas22">oscarlucasleo124</a></p>
+            <p class="fl_right">Creado por <a target="_blank" href="https://github.com/oscarlucas22" title="Free Website Templates">Óscar Lucas Leo</a></p>
+          </div>
+      </div>
+  </strong>
+  </body>
+  <script src="static/scripts/jquery.min.js"></script>
+  <script src="static/scripts/browser.min.js"></script>
+  <script src="static/scripts/breakpoints.min.js"></script>
+  <script src="static/scripts/util.js"></script>
+  <script src="static/scripts/main.js"></script>
+</html>
