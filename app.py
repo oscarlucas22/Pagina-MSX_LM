@@ -9,7 +9,7 @@ with open("MSX.json") as fichero:
 @app.route('/', methods=["GET"])
 def inicio():
     return render_template('inicio.html')
-    
+
 @app.route('/juegos', methods=["GET", "POST"])
 def juegos():
     if request.method == "GET":
@@ -35,6 +35,15 @@ def juegos():
                 lista_nombres.append(juegos["nombre"])
                 lista_ids.append(juegos["id"])
         return render_template("juegos.html", nombre_juego=nombre_juego, lista_nombres=lista_nombres, lista_desarrolladores=lista_desarrolladores, lista_ids=lista_ids, lista_categoria=set(lista_categoria))
+
+
+@app.route('/juego/<int:identificador>')
+def juego_id(identificador):
+    for juegos in datos:
+        if juegos["id"] == identificador:
+            return render_template('juego_id.html', juego=juegos)
+        
+    return abort(404)
 
 port=os.environ["PORT"]
 app.run('0.0.0.0', int(port), debug=False)
